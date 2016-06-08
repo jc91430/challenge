@@ -1,0 +1,9 @@
+{
+    "files": [
+        "project/static/scripts/hello.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}

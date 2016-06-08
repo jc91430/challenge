@@ -1,12 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
+{% extends "base.html" %}
 
-  <body style="background-image:url({{ url_for('static', filename='images/background.jpg') }})">
-    Test
-  </body>
-</html>
+{% block content %}
+
+
+<div class="container-fluid">
+  <div class="col-md-3"></div>
+
+  <div class="col-md-6" style="background:gray">
+    <img class="img-circle center-block hidden-xs hidden-sm" id="indexLogoDesktop" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"/>
+    <img class="img-circle center-block hidden-md hidden-lg" id="indexLogoMobile" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"/>
+  </div>
+
+  <div class="col-md-3"></div>
+</div>
+
+<div class="container-fluid">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4 text-center">
+    <span id="indexCatchphrase">Lorem ipsum dolor sit amet</span>
+  </div>
+
+  <div class="col-md-4"></div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="col-md-2"></div>
+
+  <div class="col-md-8 text-center">
+    <div class="hidden-xs hidden-sm">
+      <br/>
+      <h2 class="hidden-xs hidden-sm">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
+      </h2>
+    </div>
+    <div class="hidden-md hidden-lg">
+      <h4>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
+      </h4>
+    </div>
+
+    <br/>
+    <a class="btn btn-lg btn-default" type="button" href="signin">Let's go</a>
+  </div>
+
+  <div class="col-md-2"></div>
+</div>
+
+{% endblock content %}

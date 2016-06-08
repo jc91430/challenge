@@ -1,0 +1,9 @@
+{
+    "files": [
+        "project/static/ts/hello.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}

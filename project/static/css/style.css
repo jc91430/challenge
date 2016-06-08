@@ -1,3 +1,26 @@
 body {
-  background-size: cover;
+//  background-size: cover;
+}
+
+.navbar-header .img-circle {
+	margin-top: 5px;
+	margin-left: 5px;
+	height: 40px;
+}
+
+.navbar-brand {
+	margin-left: 0px !important;
+}
+
+#indexLogoDesktop {
+	height: 200px;
+}
+
+#indexLogoMobile {
+  height: 100px;
+}
+
+#indexCatchphrase {
+  font-size: 2em;
+  color: gray;
 }
