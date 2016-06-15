@@ -16,40 +16,47 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
-
 </head>
 
 
 <body style="background-image:url({{ url_for('static', filename='images/background.png') }})">
+
+  <!-- Navbar -->
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/"><img class="img-circle pull-left" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"/></a>
-        <a class="navbar-brand" href="/">Make My Challenge</a>
-      </div>
+      <!--<div class="col-xs-2"></div>
+      <div class="col-xs-8">-->
 
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="nav navbar-nav">
-          <li><a href="about">About</a></li>
-          <li><a href="faq">FAQ</a></li> 
-          <li><a href="contact">Contact</a></li> 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden"><a onclick="signOut()">Sign out</a></li>
-          <li><a href="signin">Sign In</a></li>
-          <li class="hidden"><a href="profile">Profile</a></li>
-        </ul>
-      </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/"><img class="img-circle pull-left" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"/></a>
+          <a class="navbar-brand" href="/">Make My Challenge</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="about">About</a></li>
+            <li><a href="faq">FAQ</a></li> 
+            <li><a href="contact">Contact</a></li> 
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden"><a onclick="signOut()">Sign out</a></li>
+            <li><a href="signin">Sign In</a></li>
+            <li class="hidden"><a href="profile">Profile</a></li>
+          </ul>
+        </div>
+
+      <!--</div>
+      <div class="col-xs-2"></div>-->
 
     </div>
   </nav>
 
+  <!-- Page-specific HTML -->
   {% block content %}
   {% endblock content %}
 
