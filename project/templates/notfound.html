@@ -15,11 +15,11 @@
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </head>
 
 
-<body>
+<body data-spy="scroll" data-target=".navbar">
+
   <!-- Navbar -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -43,16 +43,10 @@
     </div>
   </nav>
 
-  <div id="signinPage" class="container bodyContainer">
+  <div id="notFoundPage" class="container-fluid bodyContainer">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-      <div id="signinPrompt" class="text-center">
-        <span id="signinTitle"><h3><strong>Sign in with Google</strong></h3></span>
-        <br/>
-        <span id="signinSubtitle"><h4>Sign in with your Google account by clicking on the button below</h4></span>
-        <br/><br/><br/>
-        <div class="g-signin2" data-width="220px" data-height="50" data-longtitle="true" data-onsuccess="handleSignIn"></div>
-      </div>
+      Not in database
     </div>
     <div class="col-sm-4"></div>
   </div>

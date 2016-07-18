@@ -1,46 +1,41 @@
-// Sends an AJAX request to the server with the user's idtoken
-// Redirects the user to the main page if successfully signed in, else error msg
-function redirect(googleUser) {
-    console.log(googleUser.getId());
-    $.ajax({
-        data: "idtoken=" + googleUser.getAuthResponse().id_token,
-        type: 'POST',
-        success: function() {
-            if (googleUser.isSignedIn())
-                window.location = 'main';
-        },
-        error: function(error) {
-            console.log("Request failed: " + error);
+// Sends a POST request to the server to authenticate them on the backend
+// Expects a string response and redirects the browser accordingly
+function handleSignIn(googleUser) {
+    $.post(
+        '/signin',
+        {"idtoken": googleUser.getAuthResponse().id_token},
+        function(data) {
+            if (data == "/notfound")
+                gapi.auth2.getAuthInstance().signOut();
+            window.location = data;
         }
-    });
+    );
 }
 
-// Initializes the auth instance and toggles the sign in/out and profile buttons
+// Initializes the auth instance
 // If the user is not signed in, redirects them to the index page
-function handleMainPage() {
-    gapi.load('auth2', function() {
-        gapi.auth2.init().then(function () {
-            var currentUser = gapi.auth2.getAuthInstance().currentUser.get();
-            if (!currentUser.isSignedIn()) 
+function checkSignIn() {
+    $.post(
+        '/checksignin',
+        function(data) {
+            if (!data)
                 window.location = '/';
-        });
-    });
-
-    $("a[href='signin']").parent().toggleClass("hidden");
-    $("a[onclick='signOut()']").parent().toggleClass("hidden");
-    $("a[href='profile']").parent().toggleClass("hidden");
+        }
+    );
 }
 
 // Signs the user out then redirects to index
 function signOut() {
-    gapi.auth2.getAuthInstance().signOut().then(function () {
-        window.location = '/';
-    });
-    // gapi.load('auth2', function() {
-    //  gapi.auth2.init().then(function () {
-    //      gapi.auth2.getAuthInstance().signOut().then(function () {
-    //          window.location = '/';
-    //      });
-    //  });
-    // });
+    $.post(
+        '/signout',
+        function(data) {
+            gapi.load('auth2', function() {
+                gapi.auth2.init().then(function () {
+                    gapi.auth2.getAuthInstance().signOut().then(function () {
+                        window.location.href = '/';
+                    });
+                });
+            });
+        }
+    );
 }

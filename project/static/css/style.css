@@ -1,28 +1,227 @@
 body {
-    //  background-size: cover;
+    position: relative;
+    background: no-repeat center fixed;
+    background-color: #50b82e !important;
+    height: 100%;
 }
 
-.navbar-header .img-circle {
+@media (min-width: 768px) {
+    #viewingImg {
+        float: right;
+    }
+}
+
+@media (max-width: 767px) {
+
+    h1 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    h4 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    #profileViewContainer {
+        padding-top: 60px !important;
+    }
+
+    #viewingName {
+        text-align: center;
+    }
+
+    #viewingEmail {
+        text-align: center;
+    }
+}
+
+/* Accounts for the height of the header */
+.bodyContainer {
+    margin-top: 50px;
+}
+
+/* Index Page =================================================================== */
+/* Logo on the navbar */
+.navbar-header .img-rounded {
     margin-top: 5px;
     margin-left: 5px;
     height: 40px;
 }
 
+/* Aligns the "Make My Challenge" text on the navbar */
 .navbar-brand {
     margin-left: 0px !important;
 }
 
+.navbar {
+    /*margin-bottom: 0;*/
+    /*background-color: black;*/
+}
+ 
+/* All section titles on the front page*/
+.title {
+    font-size: 5em;
+}
+
+/* Size of the main logo on desktops */
 #indexLogoDesktop {
-    height: 200px;
+    height: 300px;
     border-radius: 25px;
 }
 
+/* Size of the main logo on mobile */
 #indexLogoMobile {
-    height: 100px;
+    height: 150px;
     border-radius: 25px;
 }
 
-#indexCatchphrase {
-    font-size: 2em;
-    color: gray;
+/* Index section of front page */
+#index {
+    padding-top: 7em;
+    height: 900px; /*~65em*/
+    background: no-repeat center fixed;
+}
+
+/* Sign in button in index section of front page*/
+#indexSignIn {
+    margin-top: 12em;
+}
+
+/* About section of front page */
+#about {
+    padding-top: 6em;
+    padding-bottom: 5em;
+    background-color: #2eb82e;
+    color: white;
+}
+
+/* Title for About section */
+#aboutTitle {
+    color: darkgreen;
+}
+
+/* FAQ section of front page */
+#faq {
+    padding-top: 6em;
+    padding-bottom: 8em;
+    background-color: #e6e6e6;
+}
+
+/* Person's name formatting on profile part of About section */
+.personName {
+    color: #666666;
+}
+
+/* Size of profile pic on profile part of About section */
+.profilePic {
+    height: 150px;
+}
+
+#faqTitle {
+    color: #666666;
+}
+
+.faqQuestion {
+    font-size: 24px;
+    color: darkgreen;
+}
+
+.glyphicon {
+    font-size: 18px;
+    color: green;
+}
+
+#footer {
+    height: 70px;
+}
+
+
+/* Signin Page=================================================================== */
+#signinPrompt {
+    margin-top: 7em;
+    min-width: 240px;
+    border-radius: 10px;
+    border: 3px solid darkgreen;//#f3f3f3;
+    height: 300px;
+    background: #e6e6e6;//#2eb82e;
+}
+
+#signinTitle {
+    color: darkgreen;
+}
+
+#signinSubtitle {
+    color: #404040;
+}
+
+.g-signin2 {
+    margin: 0 auto;
+    width: 220px;
+}
+
+#signinPage {
+    background: no-repeat center fixed;
+}
+
+/* Profile Page ================================================================= */
+#profilePage {
+    padding-top: 4em;
+}
+
+.profilePic {
+    height: 200px;
+    width: 200px;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.btn-file {
+    margin-top: 5px;
+}
+
+#profilePage textarea {
+    resize: none;
+}
+
+#profileName {
+    padding: 0;
+}
+
+.btn-outline {
+    background: none;
+    color: #e6e6e6;
+}
+
+.refName {
+    width: 49% !important;
+    display: inline-block;
+}
+
+#refLastName {
+    float: right;
+}
+
+/* Main Page ==================================================================== */
+#mainPage {
+    margin-top: 0px;
+    padding: 0;
+}
+
+.section {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#profileViewContainer {
+    padding-top: 90px;
+    padding-bottom: 15px;
 }

@@ -1,55 +1,153 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <title>Make My Challenge</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="google-signin-client_id" content="207058087446-bcseole1r7tppc8hl72pbs944da4ecm0.apps.googleusercontent.com"/>
 
-{% block content %}
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+  <!-- Scripts -->
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
 
 
-<div class="container-fluid">
-  <div class="col-md-3"></div>
+<body data-spy="scroll" data-target=".navbar">
 
-  <div class="col-md-6">
-    <img class="img-rounded center-block hidden-xs hidden-sm" id="indexLogoDesktop" src="{{ url_for('static', filename='images/logo2.png') }}" alt="logo"/>
-    <img class="img-circle center-block hidden-md hidden-lg" id="indexLogoMobile" src="{{ url_for('static', filename='images/logo2.png') }}" alt="logo"/>
+  <!-- Navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img class="img-rounded pull-left" src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo"/></a>
+        <a class="navbar-brand" href="#index">Make My Challenge</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#index">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="signin">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="index" class="container-fluid bodyContainer" style="background-image:url({{ url_for('static', filename='images/green carpet.jpg') }})">
+    <!-- Main logo -->
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <img class="img-rounded center-block hidden-xs" id="indexLogoDesktop" src="{{ url_for('static', filename='images/logo2.png') }}" alt="logo"/>
+        <img class="img-rounded center-block hidden-sm hidden-md hidden-lg" id="indexLogoMobile" src="{{ url_for('static', filename='images/logo2.png') }}" alt="logo"/>
+      </div>
+    </div>
+
+    <!-- Signin button -->
+    <div class="row text-center">
+      <a id="indexSignIn" class="btn btn-lg btn-default" type="button" href="signin">Inspire Others</a>
+    </div>
   </div>
 
-  <div class="col-md-3"></div>
-</div>
-
-<div class="container-fluid">
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4 text-center">
-    <span id="indexCatchphrase">Lorem ipsum dolor sit amet</span>
+  <div id="about" class="container-fluid">
+    <!-- Description -->
+    <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div class="title" id="aboutTitle">About</div>
+          <br/>
+          <h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem. Aenean eu scelerisque est, pellentesque tempus sem, in porta metus eros at dolor.
+          </h3>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <!--
+          <div class="hidden-xs hidden-sm">
+            <br/>
+            <h3 class="text-left hidden-xs hidden-sm">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
+            </h3>
+          </div>
+          <div class="hidden-md hidden-lg">
+            <h4>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
+            </h4>
+          </div>-->
+        </div>
+      <div class="col-sm-2"></div>
+    </div>
+    <!-- Profiles -->
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <img class="img-circle center-block profilePic" src="{{ url_for('static', filename='images/profileimg.jpg') }}" alt="profile"/>
+        <h2 class="personName text-center">Person Name</h2>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper. Sem massa vulputate neque, in porta metus eros at dolor.
+        </h4>
+        <br/>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <img class="img-circle center-block profilePic" src="{{ url_for('static', filename='images/profileimg.jpg') }}" alt="profile"/>
+        <h2 class="personName text-center">Person Name</h2>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper. Sem massa vulputate neque, in porta metus eros at dolor.
+        </h4>
+        <br/>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <img class="img-circle center-block profilePic" src="{{ url_for('static', filename='images/profileimg.jpg') }}" alt="profile"/>
+        <h2 class="personName text-center">Person Name</h2>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper. Sem massa vulputate neque, in porta metus eros at dolor.
+        </h4>
+        <br/>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
   </div>
 
-  <div class="col-md-4"></div>
-</div>
+  <!--
+  <div id="dividerOne" class="container-fluid" style="background-image:url({{ url_for('static', filename='images/sky.jpg') }})">
+  </div>
+  -->
 
-
-<div class="container-fluid">
-  <div class="col-md-2"></div>
-
-  <div class="col-md-8 text-center">
-    <div class="hidden-xs hidden-sm">
+  <div id="faq" class="container-fluid">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="title" id="faqTitle">FAQs</div>
       <br/>
-      <h2 class="hidden-xs hidden-sm">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
-      </h2>
+        <span class="glyphicon glyphicon-chevron-right"></span><span class="faqQuestion"><b> Lorem ipsum dolor sit amet, praesent risus dolor, fermentum sollicitudin in?</b></span>
+        <ul><h4>Nec a quis tellus quam, metus id, arcu libero pulvinar non. In vel mi in sodales dui, volutpat mi ullamcorper, quisque condimentum eu. Aspernatur velit, at faucibus nulla etiam nam ante fringilla, at dui nulla iaculis.</h4></ul>
+        <br/>
+        <span class="glyphicon glyphicon-chevron-right"></span><span class="faqQuestion"><b> Volutpat nunc nec arcu, rutrum litora urna sit, ac integer pretium vestibulum?</b></span>
+        <ul><h4>Suspendisse posuere et, nibh a augue purus elit. Ornare maecenas. Tellus metus a eu, dignissim leo aliquam praesent, lorem quis, mauris eu mi dolor, dolor mauris quis neque massa velit.</h4></ul>
+        <br/>
+        <span class="glyphicon glyphicon-chevron-right"></span><span class="faqQuestion"><b> Montes optio non ante, at nibh lorem et mattis, velit massa tempor posuere eget?</b></span>
+        <ul><h4>Netus vitae ut volutpat purus consequat, mauris lacinia donec sem. Ut dignissim amet, vulputate scelerisque vestibulum aliquam, morbi dolor nec, tempor rhoncus. Mi habitasse, ad at enim adipisicing, purus et arcu nulla hac ut saepe, et diam pharetra.</h4></ul>
+        <br/>
+        <span class="glyphicon glyphicon-chevron-right"></span><span class="faqQuestion"><b> Vestibulum lacinia nec arcu, urna justo sed felis, proin enim ornare porttitor sapien?</b></span>
+        <ul><h4>Maecenas ad magnis, luctus consectetuer elit dis mollis amet, mi aliquam. Purus nonummy fames ut donec, laudantium elit, bibendum condimentum laborum arcu rhoncus. Ac nam ac est malesuada ac vestibulum.</h4></ul>
     </div>
-    <div class="hidden-md hidden-lg">
-      <h4>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, massa id volutpat semper, sem massa vulputate neque, in porta metus eros at dolor. Aenean eu scelerisque est, pellentesque tempus sem.
-      </h4>
-    </div>
-
-    <br/>
-    <a class="btn btn-lg btn-default" type="button" href="signin">Let's go</a>
+  </div>
+  
+  <div id="footer">
+    <font color="white"><br/>FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER</font>
   </div>
 
-  <div class="col-md-2"></div>
-</div>
-
-<div class="container page-header">
-asdf
-</div>
-
-{% endblock content %}
+</body>
+</html>

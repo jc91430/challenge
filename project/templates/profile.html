@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <title>Make My Challenge</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="google-signin-client_id" content="207058087446-bcseole1r7tppc8hl72pbs944da4ecm0.apps.googleusercontent.com"/>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+  <script>
+    $(function () {
+      checkSignIn();
+      loadProfile();
+    });
+  </script>
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img class="img-rounded pull-left" src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo"/></a>
+        <a class="navbar-brand" href="/#index">Make My Challenge</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/main">Main</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="#" onclick="signOut()">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="profilePage" class="bodyContainer">
+    <div class="container-fluid">
+      <div class="col-lg-2 col-lg-offset-4 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 text-center">
+        <form enctype="multipart/form-data">
+          <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new">
+              <img class="img-thumbnail profilePic" id="currentPic"/>
+            </div>
+            <div class="fileinput-preview fileinput-exists thumbnail profilePic" data-trigger="fileinput"></div>
+            <span class="btn btn-default btn-file">
+              <span class="fileinput-new" id="addPic"></span>
+              <span class="fileinput-exists">Change profile image</span>
+              <input type="file" name="file" id="profileImg"/>
+            </span>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-4">
+        <div class="hidden-xs">
+          <br/><br/>
+        </div>
+        <h1 id="profileName"></h1>
+        <h4 id="profileEmail"></h4>
+        <br/><br/>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+        <!-- Add other user-specific fields -->
+
+        <!-- User's About section -->
+        <h3>About</h3>
+        <textarea rows="5" class="form-control" id="aboutMsg" placeholder="Tell everyone about yourself!"></textarea>
+
+        <!-- User's project description -->
+        <h3>Project</h3>
+        <textarea rows="3" class="form-control" id="project" placeholder="blah"></textarea>
+
+        <!-- User's fundraising link -->
+        <h3>Fundraising</h3>
+        <input type="text" class="form-control" id="fundraisingLink" placeholder="Got a fundraising link? Post it here!"/>
+        <br/>
+        <button id="saveProfile" class="btn btn-primary">Save</button>
+        <button id="cancelProfile" class="btn btn-outline">Cancel</button>
+
+        <div id="msg"></div>
+        <div class="form-inline">
+          <input type="text" class="form-control refName" id="refFirstName" placeholder="First"/>
+          <input type="text" class="form-control refName" id="refLastName" placeholder="Last"/>
+        </div>
+        <input type="text" class="form-control" id="refEmail" placeholder="Email"/>
+        <button id="addUser" class="btn btn-default center-block">Add</button>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

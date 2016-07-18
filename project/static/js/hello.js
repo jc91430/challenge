@@ -1,5 +1,3 @@
-function greeter(person) {
-    return "Hello, " + person;
+function hello() {
+    console.log("hi");
 }
-var user = "Jane Person";
-document.body.innerHTML = greeter(user);
